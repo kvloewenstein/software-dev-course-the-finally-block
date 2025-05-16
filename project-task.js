@@ -45,20 +45,34 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
-    
+    if(fileName === "" || fileName === undefined) {
+      throw new Error("File Name cannot be empty")
+    }
+    if(!fileName || fileName.trim() === "") {
+      throw new Error("File Data cannot be empty")
+    }
+    if(!isNaN(fileData)) {
+        throw new Error("Incorrect data type")
+    }
+    if(typeof fileData !== "str"){
+        throw new TypeError("Incorrect data type")
+    }
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
     
     // TODO: Add simulated file operations (reading/writing)
-    
+    console.log("File read/write operations simulated successfully.");
   } catch (err) {
     // TODO: Implement error handling
-    console.error(err);
+    console.error(`${err.name}: ${err.message}`);
   }
   // TODO: Implement a finally block to close resources
-}
-
+ 
+    finally {
+    console.log("File processing complete.");
+    }
+ }
 // ============================================
 // 🧪 Test Cases Below
 // ============================================
